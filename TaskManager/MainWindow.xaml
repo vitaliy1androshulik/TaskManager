@@ -1,0 +1,33 @@
+﻿<Window x:Class="TaskManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+        <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Click="Button_Click">Refresh</Button>
+            <ComboBox x:Name="ComboBoxTime" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem x:Name="ComboBoxItem1sec">1 sec.</ComboBoxItem>
+                <ComboBoxItem x:Name="ComboBoxItem2sec">2 sec.</ComboBoxItem>
+                <ComboBoxItem x:Name="ComboBoxItem3sec">5 sec.</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name ="BtnStopRefreshing" Click="BtnStopRefreshing_Click">Stop Refreshig</Button>
+            <Button x:Name="BtnKillProc" Click="BtnKillProc_Click">Kill Process</Button>
+            <Button x:Name="BtnCreateProc" Click="BtnCreateProc_Click">Create New Process</Button>
+            <TextBox x:Name="TextBoxInformation" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        </ToolBar>
+        <DataGrid Name="grid" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Process Name" Binding="{Binding ProcessName}" />
+                <DataGridTextColumn Header="PID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Total Processor Time" Binding="{Binding TotalProcessorTime}" />
+                    <DataGridTextColumn Header="Priority" Binding="{Binding PriorityClass}" />
+                    <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>
